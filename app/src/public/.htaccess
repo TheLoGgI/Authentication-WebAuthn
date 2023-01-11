@@ -1,0 +1,27 @@
+
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# Fallback all other routes to index.html
+RewriteRule ^ /webauthn/index.html [L]
+
+<!-- Options -MultiViews
+DirectoryIndex index.html
+
+RewriteEngine On
+
+RewriteBase /webauthn
+
+RewriteRule . /index.html [R,L] -->
+
+<!-- RewriteCond %{HTTP_HOST} ^lasseaakjaer.com/webauthn [NC]
+RewriteCond %{HTTP:X-Forwarded-Proto} ^http$
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}/webauthn [R=301,L] -->
+
+<!-- RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . /webauthn/index.html [L] -->
+
